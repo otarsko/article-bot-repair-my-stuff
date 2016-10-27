@@ -1,0 +1,26 @@
+{
+  "name": "fix-my-stuff",
+  "version": "1.0.0",
+  "description": "Simple chatbot for requesting repair of some stuff",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon src/index.js --exec babel-node"
+  },
+  "dependencies": {
+    "lodash": "^4.16.4",
+    "mongoose": "^4.5.9",
+    "node-telegram-bot-api": "^0.23.3",
+    "npmlog": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "6.10.4",
+    "babel-polyfill": "^6.0.16",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "nodemon": "^1.9.2"
+  },
+  "author": "Oleksandr Tarasenko",
+  "license": "ISC"
+}
