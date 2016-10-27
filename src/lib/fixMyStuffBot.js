@@ -4,6 +4,6 @@ export default class TelegramBot {
     }
 
     sendMessage(userId, message, messageOptions) {
-        this.bot.sendMessage(userId, message, messageOptions);
+        return this.bot.sendMessage(userId, message, messageOptions);
     }
 }
