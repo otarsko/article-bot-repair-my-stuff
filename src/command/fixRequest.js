@@ -18,7 +18,7 @@ export default class FixRequestHandler {
             })
             .catch(err => {
                 log.error('FixRequest', `Was not able to save request ${fixRequest}, got error: ${err}`);
-                return bot.sendMessage(message.from, 'Sorry we do not have any commands yet.');
+                return bot.sendMessage(message.from, 'Sorry we can not accept your request. Try later.');
             });
     }
 }
