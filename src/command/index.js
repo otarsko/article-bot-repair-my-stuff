@@ -2,9 +2,10 @@
 
 import log from 'npmlog';
 
-import FixRequest from './fixRequest';
+import FixRequest from './request/fixRequest';
 import Help from './help';
-import MyRequests from './myRequests';
+import MyRequests from './request/myRequests';
+import Start from './start';
 
 const DEFAULT_HANDLER_KEY = 'help';
 export default class HandlerRouter {
@@ -13,7 +14,8 @@ export default class HandlerRouter {
         this.handlers = {
             'help': new Help(),
             'fix': new FixRequest(),
-            'myrequests': new MyRequests()
+            'myrequests': new MyRequests(),
+            'start': new Start()
         }
     }
 

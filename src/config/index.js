@@ -19,13 +19,15 @@ var envs = {
             uri:  process.env.MONGODB_URI ||
                 process.env.MONGOHQ_URL ||
                 process.env.OPENSHIFT_MONGODB_DB_URL +
-                process.env.OPENSHIFT_APP_NAME
+                process.env.OPENSHIFT_APP_NAME,
+            seedDB: false
         }
     },
     'development': {
         logLevel: 'verbose',
         mongo: {
-            uri: 'mongodb://localhost/repairmystuff'
+            uri: 'mongodb://localhost/repairmystuff',
+            seedDB: true
         }
     }
 };

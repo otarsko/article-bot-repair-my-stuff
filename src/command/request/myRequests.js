@@ -2,7 +2,7 @@
 
 import log from 'npmlog';
 
-import FixRequest from '../services/fixRequest/fixRequest.model'
+import FixRequest from '../../services/fixRequest/fixRequest.model'
 
 const MESSAGE_OPTIONS = {
     parse_mode: 'Markdown'

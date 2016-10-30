@@ -6,6 +6,7 @@ import Promise from 'bluebird';
 
 import config from './config'
 import Messenger from './lib/messenger';
+import SeedDB from './config/seeddb';
 
 mongoose.connect(config.mongo.uri);
 mongoose.connection.on('error', function(err) {
@@ -14,6 +15,8 @@ mongoose.connection.on('error', function(err) {
 });
 
 mongoose.Promise = Promise;
+
+if (config.mongo.seedDB) { SeedDB.seed() }
 
 log.level = config.logLevel;
 

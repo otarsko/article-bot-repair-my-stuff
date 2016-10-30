@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.idea/
+stepnotes.txt
+.gitignore
