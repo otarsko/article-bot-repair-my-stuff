@@ -6,6 +6,7 @@ import TelegramBot from "node-telegram-bot-api";
 import config from '../config';
 import HandlerRouter from "../command";
 import Message from "./message";
+import CallbackQueryMessage from "./callbackQueryMessage";
 import FixMyStuffBot from "./fixMyStuffBot";
 
 const handlerRouter = new HandlerRouter();
@@ -23,6 +24,8 @@ export default class Messenger {
 
     listen() {
         this.bot.on('text', this.handleText.bind(this));
+        this.bot.on('callback_query', this.handleCallbackQuery.bind(this));
+
         this.botWrapper = new FixMyStuffBot(this.bot);
         return Promise.resolve();
     }
@@ -34,5 +37,14 @@ export default class Messenger {
             .catch(err => {
                 log.error('Messenger', `Got error from command handler: ${err}`);
             });
+    }
+
+    handleCallbackQuery(msg) {
+      var message = CallbackQueryMessage.from(msg);
+      handlerRouter.getCallbackQueryHandler(message)
+        .handleCallbackQuery(message, this.botWrapper)
+        .catch(err => {
+          log.error('Messenger', `Got error from callback query handler: ${err}`);
+        });
     }
 }

@@ -9,7 +9,8 @@ var FixRequestSchema = new mongoose.Schema({
         type: String,
         enum : ['NEW','ASSIGNED', 'IN_PROGRESS', 'RESOLVED', 'DECLINED'],
         default : 'NEW'
-    }
+    },
+    master: String
 });
 
 export default mongoose.model('FixRequest', FixRequestSchema);

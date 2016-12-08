@@ -4,6 +4,18 @@ import log from 'npmlog';
 
 import UserRepository from '../../services/user/user.dao'
 
+function getAssignRequestKeyboard(requestId) {
+    return {
+        reply_markup: JSON.stringify({
+            inline_keyboard: [
+                [
+                    { text: 'Assign to me', callback_data: `assignRequest_${requestId}` }
+                ]
+            ]
+        })
+    };
+}
+
 export default class FixRequestBroadcastHandler {
 
     constructor() {
@@ -12,11 +24,11 @@ export default class FixRequestBroadcastHandler {
 
     handle(fixRequest, bot) {
 
-        this.userDao.findAllRegisteredMasters()
+        return this.userDao.findAllRegisteredMasters()
             .then(masters => {
                 masters.forEach(master => {
-                    log.verbose('FixRequestBroadcastHandler', `Rend request to user ${JSON.stringify(fixRequest)}`);
-                    bot.sendMessage(master.userId, `New request: ${fixRequest.request}`)
+                    log.verbose('FixRequestBroadcastHandler', `Send request to user ${JSON.stringify(fixRequest)}`);
+                    bot.sendMessage(master.userId, `New request: ${fixRequest.request}`, getAssignRequestKeyboard(fixRequest._id))
                 })
             })
             .catch(err => {

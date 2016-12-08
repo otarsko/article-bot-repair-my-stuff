@@ -12,6 +12,10 @@ function sendMasterUserResponse(userId, bot) {
     return bot.sendMessage(userId, 'You have been registered as master. You will get requests as soon as new are submitted.');
 }
 
+function sendErrorResponse(userId, bot) {
+    return bot.sendMessage(userId, 'Startup parameters were not recognized.');
+}
+
 export default class Start {
 
     constructor() {
@@ -36,11 +40,14 @@ export default class Start {
                     return this.userDao.save(user);
                 } else {
                     log.verbose('Start', `User not found by given id`);
-                    return sendSimpleUserResponse(userId, bot);
+                    throw new Error('User not found');
                 }
             })
             .then(() => {
                 return sendMasterUserResponse(userId, bot);
+            })
+            .catch((error) => {
+                return sendErrorResponse(userId, bot);
             })
     }
 }
