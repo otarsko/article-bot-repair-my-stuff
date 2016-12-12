@@ -6,8 +6,8 @@ var UserSchema = new mongoose.Schema({
     startId: String,
     type: {
         type: String,
-        enum : ['SIMPLE','MASTER'],
-        default : 'SIMPLE'
+        enum : ['REGULAR','REPAIRER'],
+        default : 'REGULAR'
     },
     userId: String
 });

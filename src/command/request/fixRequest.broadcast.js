@@ -24,11 +24,11 @@ export default class FixRequestBroadcastHandler {
 
     handle(fixRequest, bot) {
 
-        return this.userDao.findAllRegisteredMasters()
-            .then(masters => {
-                masters.forEach(master => {
+        return this.userDao.findAllRegisteredRepairers()
+            .then(repairers => {
+              repairers.forEach(repairer => {
                     log.verbose('FixRequestBroadcastHandler', `Send request to user ${JSON.stringify(fixRequest)}`);
-                    bot.sendMessage(master.userId, `New request: ${fixRequest.request}`, getAssignRequestKeyboard(fixRequest._id))
+                    bot.sendMessage(repairer.userId, `New request: ${fixRequest.request}`, getAssignRequestKeyboard(fixRequest._id))
                 })
             })
             .catch(err => {

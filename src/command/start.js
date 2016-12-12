@@ -8,8 +8,8 @@ function sendSimpleUserResponse(userId, bot) {
     return bot.sendMessage(userId, 'Hello. I can help you to fix your broken stuff. Write /help to know more.');
 }
 
-function sendMasterUserResponse(userId, bot) {
-    return bot.sendMessage(userId, 'You have been registered as master. You will get requests as soon as new are submitted.');
+function sendRepairerUserResponse(userId, bot) {
+    return bot.sendMessage(userId, 'You have been registered as a repairer. You will get requests as soon as new are submitted.');
 }
 
 function sendErrorResponse(userId, bot) {
@@ -26,17 +26,17 @@ export default class Start {
         var userId = message.from;
         var startId = message.option;
 
-        if (!startId) {
-            log.verbose('Start', `Got start command with startId '${startId}'`);
+      log.verbose('Start', `Got start command with startId '${startId}'`);
+      if (!startId) {
             return sendSimpleUserResponse(userId, bot);
         }
 
-        return this.userDao.findMasterByStartId(startId)
+        return this.userDao.findRepairerByStartId(startId)
             .then(user => {
                 if (user) {
                     user.userId = userId;
 
-                    log.verbose('Start', `Found master user, will set userId for him`);
+                    log.verbose('Start', `Found repairer user, will set userId for him`);
                     return this.userDao.save(user);
                 } else {
                     log.verbose('Start', `User not found by given id`);
@@ -44,7 +44,7 @@ export default class Start {
                 }
             })
             .then(() => {
-                return sendMasterUserResponse(userId, bot);
+                return sendRepairerUserResponse(userId, bot);
             })
             .catch((error) => {
                 return sendErrorResponse(userId, bot);

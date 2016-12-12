@@ -6,14 +6,14 @@ import User from './user.model'
 
 export default class UserDao {
 
-    findAllRegisteredMasters() {
-        log.verbose('UserRepository', `Searching for all masters`);
-        return User.find({'type' : 'MASTER', userId : {$ne : null}});
+    findAllRegisteredRepairers() {
+        log.verbose('UserRepository', `Searching for all repairers`);
+        return User.find({'type' : 'REPAIRER', userId : {$ne : null}});
     }
 
-    findMasterByStartId(startId) {
-        log.verbose('UserRepository', `Searching for master with start id ${startId}`);
-        return User.findOne({'startId' : startId, 'type' : 'MASTER'});
+    findRepairerByStartId(startId) {
+        log.verbose('UserRepository', `Searching for repairer with start id ${startId}`);
+        return User.findOne({'startId' : startId, 'type' : 'REPAIRER'});
     }
 
     save(user) {

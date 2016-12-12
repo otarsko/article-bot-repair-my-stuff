@@ -7,14 +7,14 @@ export default class SeedDb {
         return User.find({}).remove()
             .then(()=> {
                 User.create({
-                    startId: 'master1',
-                    type: 'MASTER'
+                    startId: 'repairer1',
+                    type: 'REPAIRER'
                 }, {
-                    startId: 'master2',
-                    type: 'MASTER'
+                    startId: 'repairer2',
+                    type: 'REPAIRER'
                 }, {
-                    startId: 'master3',
-                    type: 'MASTER'
+                    startId: 'repairer3',
+                    type: 'REPAIRER'
                 })
             })
             .then(() => {

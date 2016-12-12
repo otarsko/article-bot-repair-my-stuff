@@ -13,11 +13,11 @@ export default class AssignRequestHandler {
         if (!result) {
           return bot.sendMessage(message.from, 'Sorry but we found no such request.');
         }
-        if (result.master) {
-          return bot.sendMessage(message.from, 'Request already assigned to another master.');
+        if (result.repairer) {
+          return bot.sendMessage(message.from, 'Request already assigned to another repairer.');
         }
 
-        result.master = message.from;
+        result.repairer = message.from;
         result.status = 'ASSIGNED';
         return result.save()
           .then(() => {
