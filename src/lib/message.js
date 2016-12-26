@@ -3,11 +3,11 @@
 export default class Message {
 
     static from(telegramMessage) {
-        var command,
+        let command,
             option;
 
         if (telegramMessage.text.indexOf(' ') > -1) {
-            var parts = telegramMessage.text.split(' ');
+            const parts = telegramMessage.text.split(' ');
             command = parts.shift();
             option = parts.join(' ');
         } else {

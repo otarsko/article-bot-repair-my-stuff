@@ -2,7 +2,7 @@
 
 import _ from 'lodash';
 
-var all = {
+const all = {
     telegram: {
         token: process.env.TELEGRAM_TOKEN || '',
         externalUrl: process.env.EXTERNAL_URL || '',
@@ -12,7 +12,7 @@ var all = {
     logLevel: 'verbose'
 };
 
-var envs = {
+const envs = {
     'production': {
         logLevel: 'info',
         mongo: {

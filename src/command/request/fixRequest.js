@@ -12,7 +12,7 @@ export default class FixRequestHandler {
     }
 
     handle(message, bot) {
-        var fixRequest = new FixRequest({
+        const fixRequest = new FixRequest({
             'userId': message.from,
             'request': message.option
         });
