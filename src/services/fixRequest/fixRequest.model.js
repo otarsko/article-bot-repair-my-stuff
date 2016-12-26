@@ -2,7 +2,7 @@
 
 import mongoose from 'mongoose';
 
-var FixRequestSchema = new mongoose.Schema({
+const FixRequestSchema = new mongoose.Schema({
     userId: String,
     request: String,
     status: {

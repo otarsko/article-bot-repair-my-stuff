@@ -28,7 +28,7 @@ export default class Messenger {
     }
 
     handleText(msg) {
-        var message = Message.from(msg);
+        const message = Message.from(msg);
         handlerRouter.getCommandHandler(message)
             .handle(message, this.botWrapper)
             .catch(err => {

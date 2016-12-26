@@ -9,7 +9,7 @@ const MESSAGE_OPTIONS = {
 };
 
 function formatRequests(requests) {
-    var message = 'Your requests:\n';
+    let message = 'Your requests:\n';
     requests.forEach(userRequest => {
         message += `*Request*: ${userRequest.request}\n`
         + `*Status*: ${userRequest.status}\n\n`;
@@ -20,12 +20,12 @@ function formatRequests(requests) {
 
 export default class MyRequests {
     handle(message, bot) {
-        var userId = message.from;
+        const userId = message.from;
         return FixRequest.find({'userId': userId})
             .then((result) => {
                 log.verbose('MyRequests', `For user ${userId} found next requests: ${JSON.stringify(result)}`);
 
-                var message = '';
+                let message = '';
                 if (result && result.length > 0) {
                     message = formatRequests(result);
                 } else {

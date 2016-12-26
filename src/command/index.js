@@ -18,7 +18,7 @@ export default class HandlerRouter {
     }
 
     getCommandHandler(message) {
-        var command = message.command;
+        let command = message.command;
         log.verbose('Handler', `Looking for the handler for command ${command}`);
 
         if (command.indexOf('/') == 0) {
