@@ -6,7 +6,7 @@ export default class SeedDb {
     static seed() {
         return User.find({}).remove()
             .then(()=> {
-                User.create({
+                return User.create({
                     startId: 'repairer1',
                     type: 'REPAIRER'
                 }, {

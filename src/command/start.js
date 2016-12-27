@@ -23,8 +23,8 @@ export default class Start {
     }
 
     handle(message, bot) {
-        var userId = message.from;
-        var startId = message.option;
+      const userId = message.from;
+      const startId = message.option;
 
       log.verbose('Start', `Got start command with startId '${startId}'`);
       if (!startId) {

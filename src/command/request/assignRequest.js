@@ -6,7 +6,7 @@ export default class AssignRequestHandler {
 
   handleCallbackQuery(message, bot) {
 
-    var requestId = message.data.split('_')[1];
+    const requestId = message.data.split('_')[1];
 
     return FixRequest.findById(requestId)
       .then(result => {

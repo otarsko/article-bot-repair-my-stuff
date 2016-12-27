@@ -40,7 +40,7 @@ export default class Messenger {
     }
 
     handleCallbackQuery(msg) {
-      var message = CallbackQueryMessage.from(msg);
+      const message = CallbackQueryMessage.from(msg);
       handlerRouter.getCallbackQueryHandler(message)
         .handleCallbackQuery(message, this.botWrapper)
         .catch(err => {

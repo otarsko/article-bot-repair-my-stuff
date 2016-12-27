@@ -2,7 +2,7 @@
 
 import mongoose from 'mongoose';
 
-var UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     startId: String,
     type: {
         type: String,
