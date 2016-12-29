@@ -1,4 +1,11 @@
 # Telegram Bot Repair My Stuff
-This is the repository for the series of articles about building a stateul Telegram Bot with Node.js, Babel and MongoDB.
+This is the repository for the [series of articles](http://taradevko.com/bots/write-statefull-bot-telegram-part-1/) about building a stateful Telegram Bot with Node.js, Babel and MongoDB.
 
-Each article has corresponding branch and build information can be found there.
+# Installation
+1. Clone the repository
+2. Navigate to the project root directory
+3. Run npm install
+4. Install Babel CLI globally `npm install --global babel-cli`
+6. Adapt `src/config/index.js` if needed
+7. Run your MongoDB
+8. Run `TELEGRAM_TOKEN=YOUR_TOKEN  NODE_ENV=development  npm start`
