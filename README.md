@@ -8,4 +8,4 @@ This is the repository for the [series of articles](http://taradevko.com/bots/wr
 4. Install Babel CLI globally `npm install --global babel-cli`
 6. Adapt `src/config/index.js` if needed
 7. Run your MongoDB
-8. Run `TELEGRAM_TOKEN=YOUR_TOKEN  NODE_ENV=development  npm start`
+8. Run `TELEGRAM_TOKEN=YOUR_TOKEN  npm start`
